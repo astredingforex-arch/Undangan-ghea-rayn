@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101810">
+<title>Ghea & Rayn — The Wedding Celebration</title>
+<meta name="description" content="Undangan pernikahan Ghea & Rayn. Dengan penuh sukacita, kami mengundang Anda untuk merayakan hari istimewa kami.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--ink:#101810;--forest:#17251c;--forest2:#213329;--gold:#c9aa70;--gold2:#ead7ad;--cream:#f5f0e7;--muted:#a9aa9d;--white:#fffdf8;--serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:300}button,input,select,textarea{font:inherit}a{color:inherit}.eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}.serif{font-family:var(--serif);font-weight:400}.gold{color:var(--gold2)}.wrap{width:min(1120px,calc(100% - 42px));margin:auto}.section{padding:110px 0;position:relative}.section-head{text-align:center;margin:0 auto 54px;max-width:650px}.section-head h2{font:400 clamp(44px,7vw,76px)/.95 var(--serif);margin:15px 0;color:var(--cream)}.section-head p{color:var(--muted);line-height:1.9;font-size:13px}.btn{border:1px solid var(--gold);color:var(--gold2);background:transparent;padding:15px 25px;letter-spacing:.16em;text-transform:uppercase;font-size:9px;cursor:pointer;transition:.3s}.btn:hover{background:var(--gold);color:var(--ink)}.btn.filled{background:var(--gold);color:var(--ink)}.btn:disabled{opacity:.55;cursor:wait}
+/* cover */
+.cover{position:fixed;inset:0;z-index:20;background:linear-gradient(145deg,rgba(8,15,10,.84),rgba(13,22,15,.95)),url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85') center/cover;display:grid;place-items:center;text-align:center;padding:25px;transition:opacity .9s,visibility .9s}.cover.hide{opacity:0;visibility:hidden;pointer-events:none}.cover:before,.cover:after{content:"";position:absolute;inset:18px;border:1px solid rgba(201,170,112,.35);pointer-events:none}.cover:after{inset:25px;border-color:rgba(201,170,112,.12)}.cover-inner{position:relative;z-index:1;max-width:650px}.crest{width:68px;height:68px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:0 auto 28px;color:var(--gold);font:34px var(--serif)}.cover h1{font:400 clamp(58px,12vw,105px)/.82 var(--serif);margin:28px 0;color:var(--white)}.cover h1 span{display:block;font-style:italic;color:var(--gold2);font-size:.8em;margin:13px 0}.cover .to{font-size:11px;letter-spacing:.2em;color:#ded7c9;margin:30px 0 8px}.cover .guest{font:italic 26px var(--serif);color:var(--gold2);margin:0 0 30px}.cover small{display:block;color:#aaa99d;font-size:9px;letter-spacing:.22em;margin-bottom:24px}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(8,14,10,.24),rgba(8,14,10,.88)),url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90') center/cover}.hero:after{content:"";position:absolute;inset:18px;border:1px solid rgba(201,170,112,.48);pointer-events:none}.hero-content{position:relative;z-index:1;padding:100px 20px}.hero .eyebrow{color:#e2c991}.hero h1{font:400 clamp(75px,15vw,160px)/.72 var(--serif);margin:35px 0 24px;text-shadow:0 8px 40px #0008}.hero h1 span{display:block;color:var(--gold2);font-style:italic;font-size:.78em;margin:20px 0}.hero-date{letter-spacing:.3em;font-size:11px;color:#e9e2d4}.scroll{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;color:var(--gold2)}
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(13,21,15,.92);backdrop-filter:blur(14px);border-bottom:1px solid #c9aa702b}.nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:66px}.brand{font:italic 25px var(--serif);color:var(--gold2)}.navlinks{display:flex;gap:26px}.navlinks a{text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:9px;color:#d4d0c5}.navlinks a:hover{color:var(--gold2)}
+/* intro */
+.intro{background:var(--cream);color:var(--ink);text-align:center}.intro .section-head p{color:#65675d}.intro-mark{font:italic 65px var(--serif);color:#b08e53;margin:25px 0}.intro-copy{max-width:690px;margin:auto;font:400 24px/1.55 var(--serif);color:#343b31}.couple{display:grid;grid-template-columns:1fr 100px 1fr;align-items:center;gap:28px;margin-top:58px}.person{text-align:center}.person .portrait{height:390px;overflow:hidden;position:relative;background:#ddd}.person .portrait img{width:100%;height:100%;object-fit:cover;filter:saturate(.72)}.person h3{font:400 48px var(--serif);margin:20px 0 4px}.person p{font-size:10px;letter-spacing:.2em;color:#777}.amp{font:italic 65px var(--serif);color:#b08e53}
+/* details */
+.details{background:radial-gradient(ellipse at 50% 30%,#26392b 0%,var(--ink) 68%)}.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.detail-card{border:1px solid #c9aa7040;padding:40px 28px;text-align:center;background:linear-gradient(145deg,#ffffff08,#ffffff02)}.detail-card .symbol{font:36px var(--serif);color:var(--gold);margin-bottom:18px}.detail-card h3{font:400 36px var(--serif);margin:0 0 16px}.detail-card p{font-size:12px;line-height:1.9;color:#c0c0b4;margin:4px}.detail-card .time{font:400 27px var(--serif);color:var(--gold2);margin:14px 0}.detail-card a{display:inline-block;margin-top:20px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:5px}
+/* countdown */
+.countdown{background:var(--cream);color:var(--ink);text-align:center}.countdown .section-head p{color:#666}.timer{display:flex;justify-content:center;gap:clamp(18px,5vw,65px);margin-top:45px}.timer strong{display:block;font:400 clamp(48px,8vw,78px)/1 var(--serif);color:#9e7a43}.timer span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#6e6d62}
+/* gallery */
+.gallery{background:#111a13}.gallery-grid{display:grid;grid-template-columns:1.1fr .9fr 1fr;grid-template-rows:230px 230px;gap:12px}.gallery-grid img{width:100%;height:100%;object-fit:cover;filter:saturate(.72);transition:.5s}.gallery-grid img:hover{filter:saturate(1);transform:scale(1.015)}.gallery-grid .tall{grid-row:span 2}.gallery-grid .wide{grid-column:span 2}
+/* story */
+.story{background:#eae4d8;color:var(--ink)}.story .section-head p{color:#67675e}.storyline{max-width:760px;margin:auto;border-left:1px solid #b18e55;padding-left:34px}.moment{position:relative;padding:0 0 42px}.moment:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:#b18e55;left:-39px;top:8px}.moment small{letter-spacing:.2em;text-transform:uppercase;color:#987746;font-size:9px}.moment h3{font:400 34px var(--serif);margin:6px 0}.moment p{font-size:12px;line-height:1.9;color:#68675e}
+/* RSVP */
+.rsvp{background:linear-gradient(rgba(12,20,14,.9),rgba(12,20,14,.96)),url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80') center/cover}.rsvp-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:start}.rsvp-note h3{font:400 48px/.95 var(--serif);margin:15px 0}.rsvp-note p{font-size:12px;line-height:2;color:#b7b8ac}.form{border:1px solid #c9aa7050;padding:34px;background:#ffffff08}.field{margin-bottom:18px}.field label{display:block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);margin-bottom:9px}.field input,.field select,.field textarea{width:100%;background:#0d160f;border:1px solid #ffffff26;color:var(--cream);padding:14px;outline:none;border-radius:0}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}.field textarea{min-height:95px;resize:vertical}.form .btn{width:100%}.status{font-size:11px;color:var(--gold2);margin-top:13px;min-height:18px}
+/* wishes */
+.wishes{background:var(--cream);color:var(--ink)}.wishes .section-head p{color:#666}.wish-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.wish{padding:24px;border:1px solid #c4b99f;background:#fffaf1}.wish strong{font:400 24px var(--serif);display:block;margin-bottom:10px}.wish p{font:italic 16px/1.6 var(--serif);color:#57564e;margin:0}.wish small{display:block;margin-top:15px;color:#99845f;font-size:9px;letter-spacing:.12em}
+footer{padding:65px 20px;text-align:center;background:#0b120d;border-top:1px solid #c9aa7030}footer .names{font:italic 48px var(--serif);color:var(--gold2)}footer p{font-size:9px;letter-spacing:.2em;color:#8c9185;margin-top:15px}
+@media(max-width:700px){.section{padding:78px 0}.navlinks{gap:12px}.navlinks a{font-size:8px}.brand{font-size:21px}.couple{grid-template-columns:1fr;gap:5px}.person .portrait{height:340px;max-width:420px;margin:auto}.amp{line-height:.8}.detail-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}.gallery-grid .tall{grid-row:span 2}.gallery-grid .wide{grid-column:span 2}.rsvp-layout{grid-template-columns:1fr;gap:25px}.wish-list{grid-template-columns:1fr}.form{padding:23px}.timer{gap:17px}.timer span{font-size:8px}.timer strong{font-size:47px}}
+@media(max-width:390px){.navlinks{gap:8px}.navlinks a{letter-spacing:.06em;font-size:7px}.timer strong{font-size:39px}}
+</style>
+</head>
+<body>
+<!-- COVER -->
+<div class="cover" id="cover">
+ <div class="cover-inner">
+  <div class="crest">G<span style="font-size:18px">&</span>R</div>
+  <div class="eyebrow">The Wedding Celebration</div>
+  <h1 class="serif">Ghea <span>&</span> Rayn</h1>
+  <div class="to">KEPADA YTH. BAPAK / IBU / SAUDARA/I</div>
+  <p class="guest" id="guestName">Tamu Undangan</p>
+  <small>Dengan penuh sukacita, kami mengundang Anda</small>
+  <button class="btn filled" id="openInvite">Buka Undangan</button>
+ </div>
+</div>
+<header class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow">Together with our families</div>
+  <h1>Ghea <span>&</span> Rayn</h1>
+  <div class="hero-date" id="heroDate">SABTU • 00 BULAN 20XX</div>
+ </div>
+ <div class="scroll">SCROLL TO DISCOVER　↓</div>
+</header>
+<nav class="nav"><div class="wrap"><div class="brand">G <span style="font-size:14px">&</span> R</div><div class="navlinks"><a href="#story">Our Story</a><a href="#details">The Day</a><a href="#gallery">Gallery</a><a href="#rsvp">RSVP</a></div></div></nav>
+
+<section class="section intro" id="story">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">A promise of forever</div><h2>Two souls, one beautiful journey.</h2><p>Atas berkat dan rahmat Tuhan Yang Maha Esa, kami dengan penuh rasa syukur bermaksud menyelenggarakan pernikahan kami.</p></div>
+  <div class="intro-mark">❧</div>
+  <p class="intro-copy">“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram di sisinya.”</p>
+  <div class="couple">
+   <div class="person"><div class="portrait"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Portrait perempuan"></div><h3>Ghea</h3><p>THE BRIDE</p></div>
+   <div class="amp">&</div>
+   <div class="person"><div class="portrait"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85" alt="Portrait laki-laki"></div><h3>Rayn</h3><p>THE GROOM</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section details" id="details">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">Save the date</div><h2>The Wedding Day</h2><p>Sebuah hari yang kami nantikan, dan akan menjadi lebih istimewa dengan kehadiran Anda.</p></div>
+  <div class="detail-grid">
+   <article class="detail-card"><div class="symbol">✧</div><div class="eyebrow">The sacred moment</div><h3>Akad Nikah</h3><p id="akadDate">Tanggal akan diumumkan</p><div class="time" id="akadTime">08.00 WIB</div><p id="akadVenue">Nama lokasi acara</p><p id="akadAddress">Alamat lengkap lokasi acara</p><a id="akadMap" href="#" target="_blank" rel="noopener">Lihat lokasi ↗</a></article>
+   <article class="detail-card"><div class="symbol">❧</div><div class="eyebrow">The celebration</div><h3>Resepsi</h3><p id="resepsiDate">Tanggal akan diumumkan</p><div class="time" id="resepsiTime">11.00 – 14.00 WIB</div><p id="resepsiVenue">Nama lokasi acara</p><p id="resepsiAddress">Alamat lengkap lokasi acara</p><a id="resepsiMap" href="#" target="_blank" rel="noopener">Lihat lokasi ↗</a></article>
+  </div>
+ </div>
+</section>
+
+<section class="section countdown">
+ <div class="wrap"><div class="section-head"><div class="eyebrow">Counting every moment</div><h2>Until forever begins</h2><p>Menuju hari bahagia kami.</p></div>
+ <div class="timer"><div><strong id="days">000</strong><span>Days</span></div><div><strong id="hours">00</strong><span>Hours</span></div><div><strong id="minutes">00</strong><span>Minutes</span></div><div><strong id="seconds">00</strong><span>Seconds</span></div></div>
+ </div>
+</section>
+
+<section class="section gallery" id="gallery">
+ <div class="wrap"><div class="section-head"><div class="eyebrow">The beginning of always</div><h2>Our Moments</h2><p>Sepenggal cerita, sejuta rasa, dan satu janji untuk selamanya.</p></div>
+ <div class="gallery-grid">
+  <img class="tall" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="Wedding moment">
+  <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=85" alt="Wedding details">
+  <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85" alt="Wedding celebration">
+  <img class="wide" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1300&q=85" alt="Wedding table">
+ </div></div>
+</section>
+
+<section class="section story">
+ <div class="wrap"><div class="section-head"><div class="eyebrow">Written in the stars</div><h2>A story called us.</h2><p>Setiap kisah memiliki awal. Inilah beberapa bab dari perjalanan kami.</p></div>
+ <div class="storyline">
+  <div class="moment"><small>The beginning</small><h3>Where it all began</h3><p>Semua berawal dari pertemuan sederhana yang perlahan menjadi cerita istimewa.</p></div>
+  <div class="moment"><small>The promise</small><h3>A choice, every day</h3><p>Waktu mengajarkan kami bahwa cinta bukan hanya tentang menemukan, tetapi tentang memilih untuk tetap bersama.</p></div>
+  <div class="moment"><small>Forever starts here</small><h3>Our next chapter</h3><p>Hari ini, dengan penuh syukur, kami memulai perjalanan baru sebagai satu keluarga.</p></div>
+ </div></div>
+</section>
+
+<section class="section rsvp" id="rsvp">
+ <div class="wrap"><div class="rsvp-layout">
+  <div class="rsvp-note"><div class="eyebrow">We saved you a seat</div><h3>Kindly join our celebration.</h3><p>Kehadiran dan doa restu Anda merupakan hadiah terindah bagi kami. Mohon konfirmasi kehadiran melalui formulir di samping.</p><p class="gold">With love,<br><span class="serif" style="font-size:30px;font-style:italic">Ghea & Rayn</span></p></div>
+  <form class="form" id="rsvpForm">
+   <div class="field"><label for="rsvpName">Nama lengkap</label><input id="rsvpName" name="name" required maxlength="100" placeholder="Nama Anda"></div>
+   <div class="field"><label for="rsvpAttendance">Konfirmasi kehadiran</label><select id="rsvpAttendance" name="attendance" required><option value="">Pilih konfirmasi</option><option value="Hadir">Dengan senang hati, saya hadir</option><option value="Tidak hadir">Mohon maaf, saya berhalangan</option></select></div>
+   <div class="field"><label for="rsvpCount">Jumlah tamu</label><select id="rsvpCount" name="guest_count"><option value="1">1 orang</option><option value="2">2 orang</option><option value="3">3 orang</option><option value="4">4 orang</option></select></div>
+   <div class="field"><label for="rsvpMessage">Ucapan & doa (opsional)</label><textarea id="rsvpMessage" name="message" maxlength="500" placeholder="Tuliskan doa terbaik untuk kedua mempelai..."></textarea></div>
+   <button class="btn filled" id="rsvpSubmit" type="submit">Kirim Konfirmasi</button><div class="status" id="rsvpStatus" aria-live="polite"></div>
+  </form>
+ </div></div>
+</section>
+
+<section class="section wishes">
+ <div class="wrap"><div class="section-head"><div class="eyebrow">Words from the heart</div><h2>Wishes & Prayers</h2><p>Doa dan ucapan hangat dari keluarga serta sahabat.</p></div><div class="wish-list" id="wishList"><article class="wish"><strong>Ghea & Rayn</strong><p>Semoga perjalanan baru ini dipenuhi cinta, kebahagiaan, dan keberkahan.</p><small>WITH LOVE</small></article></div></div>
+</section>
+<footer><div class="names">Ghea & Rayn</div><p>THE BEGINNING OF OUR FOREVER · WITH LOVE</p><p style="margin-top:30px;letter-spacing:.08em">© <span id="year"></span> GHEA & RAYN</p></footer>
+
+<script>
+/* ==========================================================
+   KONFIGURASI UNDANGAN — EDIT BAGIAN INI SEBELUM DIPUBLIKASIKAN
+   1) Isi URL dan anon/public key dari Supabase Project Settings.
+   2) Ubah tanggal, venue, alamat, jam, dan link Google Maps.
+   ========================================================== */
+const CONFIG = {
+  supabaseUrl: "https://hiaphkfvsvysktpjounc.supabase.co",
+  supabaseAnonKey: "sb_publishable_gUOFQKBjXClQLFX4QUAymA_wDO2Aj9G",coupleId: "ghea-rayn",
+  // Format tanggal: YYYY-MM-DDTHH:mm:ss+07:00
+  weddingDate: "2027-06-12T08:00:00+07:00",
+  heroDate: "SABTU • 12 JUNI 2027",
+  akad: { date:"Sabtu, 12 Juni 2027", time:"08.00 WIB", venue:"The Grand Ballroom", address:"Nama gedung dan alamat lengkap, Jakarta", map:"https://maps.google.com/?q=Jakarta" },
+  resepsi: { date:"Sabtu, 12 Juni 2027", time:"11.00 – 14.00 WIB", venue:"The Grand Ballroom", address:"Nama gedung dan alamat lengkap, Jakarta", map:"https://maps.google.com/?q=Jakarta" }
+};
+
+let supabaseClient = null;
+const isConfigured = CONFIG.supabaseUrl.startsWith("https://") &&
+  !CONFIG.supabaseUrl.includes("PASTE_") &&
+  CONFIG.supabaseAnonKey.length > 20 &&
+  !CONFIG.supabaseAnonKey.includes("PASTE_");
+
+if (isConfigured && window.supabase) {
+  supabaseClient = window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseAnonKey);
+}
+
+document.getElementById("heroDate").textContent = CONFIG.heroDate;
+document.getElementById("akadDate").textContent = CONFIG.akad.date;
+document.getElementById("akadTime").textContent = CONFIG.akad.time;
+document.getElementById("akadVenue").textContent = CONFIG.akad.venue;
+document.getElementById("akadAddress").textContent = CONFIG.akad.address;
+document.getElementById("akadMap").href = CONFIG.akad.map;
+document.getElementById("resepsiDate").textContent = CONFIG.resepsi.date;
+document.getElementById("resepsiTime").textContent = CONFIG.resepsi.time;
+document.getElementById("resepsiVenue").textContent = CONFIG.resepsi.venue;
+document.getElementById("resepsiAddress").textContent = CONFIG.resepsi.address;
+document.getElementById("resepsiMap").href = CONFIG.resepsi.map;
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Nama tamu bisa diisi melalui URL: ?to=Nama%20Tamu
+const guest = new URLSearchParams(location.search).get("to");
+if (guest) document.getElementById("guestName").textContent = guest.replace(/[<>]/g,"").slice(0,80);
+
+document.getElementById("openInvite").addEventListener("click", () => {
+  document.getElementById("cover").classList.add("hide");
+  document.body.style.overflow = "auto";
+});
+document.body.style.overflow = "hidden";
+
+function updateCountdown(){
+  const diff = new Date(CONFIG.weddingDate).getTime() - Date.now();
+  const safe = Math.max(0,diff);
+  document.getElementById("days").textContent = String(Math.floor(safe/86400000)).padStart(3,"0");
+  document.getElementById("hours").textContent = String(Math.floor(safe/3600000)%24).padStart(2,"0");
+  document.getElementById("minutes").textContent = String(Math.floor(safe/60000)%60).padStart(2,"0");
+  document.getElementById("seconds").textContent = String(Math.floor(safe/1000)%60).padStart(2,"0");
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+
+const escapeHTML = s => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+async function loadWishes(){
+  if(!supabaseClient) return;
+  const {data,error} = await supabaseClient.from("wedding_wishes")
+    .select("name,message,created_at").eq("couple_id", CONFIG.coupleId).order("created_at",{ascending:false}).limit(12);
+  if(error){console.warn("Gagal memuat ucapan:",error.message);return;}
+  if(data?.length){
+    document.getElementById("wishList").innerHTML = data.map(item =>
+      `<article class="wish"><strong>${escapeHTML(item.name)}</strong><p>${escapeHTML(item.message)}</p><small>WITH LOVE</small></article>`
+    ).join("");
+  }
+}
+
+document.getElementById("rsvpForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const status = document.getElementById("rsvpStatus");
+  const submit = document.getElementById("rsvpSubmit");
+  if(!supabaseClient){
+    status.textContent = "Supabase belum diatur. Isi supabaseUrl dan supabaseAnonKey pada bagian CONFIG.";
+    return;
+  }
+  const payload = {
+    name: document.getElementById("rsvpName").value.trim(),
+    attendance: document.getElementById("rsvpAttendance").value,
+    guest_count: Number(document.getElementById("rsvpCount").value),
+    message: document.getElementById("rsvpMessage").value.trim() || null, couple_id: CONFIG.coupleId
+  };
+  if(!payload.name){status.textContent="Mohon isi nama lengkap.";return;}
+  submit.disabled = true; status.textContent = "Mengirim konfirmasi...";
+  const {error} = await supabaseClient.from("wedding_rsvps").insert(payload);
+  if(error){
+    submit.disabled = false; console.error(error);
+    status.textContent = "Belum berhasil dikirim. Periksa koneksi atau pengaturan Supabase.";
+    return;
+  }
+  let wishSaved = true;
+  if(payload.message){
+    const {error:wishError} = await supabaseClient.from("wedding_wishes").insert({name:payload.name,message:payload.message, couple_id: CONFIG.coupleId});
+    if(wishError){ wishSaved = false; console.error(wishError); }
+  }
+  submit.disabled = false;
+  status.textContent = wishSaved ? "Terima kasih. Konfirmasi dan ucapan Anda berhasil dikirim." : "RSVP berhasil disimpan, tetapi ucapan belum tampil. Silakan coba kirim ucapan kembali nanti.";
+  e.target.reset(); await loadWishes();
+});
+loadWishes();
+</script>
+</body>
+</html>
